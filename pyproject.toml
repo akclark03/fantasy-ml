@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "fantasy-ml"
+version = "0.1.0"
+description = ""
+authors = ["Andrew Clark"]
+readme = "README.md"
+packages = [{include = "fantasy"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bs4 = "^0.0.1"
+peewee = "^3.16.2"
+logging = "^0.4.9.6"
+pandas = "^2.0.2"
+requests = "^2.31.0"
+lxml = "^4.9.2"
+psycopg2-binary = "^2.9.6"
+types-requests = "^2.31.0.2"
+html5lib = "^1.1"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+mypy = "*"
+pep8-naming = "*"
+poethepoet = "*"
+pre-commit = "*"
+pytest = "*"
+
+[tool.poe.tasks]
+lint = { cmd = "pre-commit run --all-files", help = "Run linters and formatters" }
+test = { cmd = "pytest tests", help = "Run tests" }
+
+[tool.black]
+line-length = 105
+
+[tool.isort]
+line_length = 105
+profile = "black"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
